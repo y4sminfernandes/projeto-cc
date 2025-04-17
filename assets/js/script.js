@@ -32,6 +32,16 @@ function closeCadastro() {
     modalCadastro.close();
 }
 
+const passwordIcons = document.querySelectorAll('.password-icon');
+
+passwordIcons.forEach(icon => {
+    icon.addEventListener('click', function () {
+        const input = this.parentElement.querySelector('.form-control');
+        input.type = input.type === 'password' ? 'text' : 'password';
+        this.classList.toggle('fa-eye');
+    })
+});
+
 const btnProfile = document.querySelector(".profile-btn button");
 const profileOptions = document.querySelector(".profile-options-list");
 
@@ -46,16 +56,6 @@ profileOptions.addEventListener("click", (event) => {
 
 window.addEventListener("click", () => {
     profileOptions.classList.remove("active");
-});
-
-const passwordIcons = document.querySelectorAll('.password-icon');
-
-passwordIcons.forEach(icon => {
-    icon.addEventListener('click', function () {
-        const input = this.parentElement.querySelector('.form-control');
-        input.type = input.type === 'password' ? 'text' : 'password';
-        this.classList.toggle('fa-eye');
-    })
 });
 
 const btnFilter = document.querySelector(".btn-filter");

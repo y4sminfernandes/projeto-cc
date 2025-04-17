@@ -347,10 +347,6 @@ dialog a {
     color: var(--main-text-color);
 }
 
-.btn-spacing {
-    margin-top: 30rem;
-}
-
 #form_container {
     display: flex;
     justify-content: center;
@@ -550,6 +546,23 @@ input:-webkit-autofill {
     }
 }
 
+@media screen and (max-width: 768px) {
+    #hero {
+        height: 85vh;
+    }
+
+    #home_image,
+    #home_image img {
+        display: none;
+    }
+
+    #cta {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+}
+
 #features_container {
     display: flex;
     flex-direction: column;
@@ -703,7 +716,7 @@ input:-webkit-autofill {
 }
 
 .restaurant-box {
-    width: 350rem;
+    width: 320rem;
     border-radius: 10rem;
     box-shadow: 0 0 10rem rgba(0, 0, 0, 0.2);
 }
