@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://kit.fontawesome.com/51087b88d3.js" crossorigin="anonymous"></script>
+    <title>Início</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div id="logo">
+                <a href="index.html"><i class="fa-solid fa-utensils"></i> CoolMida</a>
+            </div>
+            <div class="menu-items">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="restaurantes.html">Restaurantes</a></li>
+                    <li><a href="feed.html">Feed</a></li>
+                </ul>
+            </div>
+            <div class="access">
+                <button onclick="showLogin()">Login</button>
+                |
+                <button onclick="showCadastro()">Cadastro</button>
+            </div>
+            <div class="mobile-menu-icon">
+                <button onclick="showMenu()"><i id="menu-icon" class="fa-solid fa-bars"></i></button>
+            </div>
+        </nav>
+        <div class="menu-items mobile-menu">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="restaurantes.html">Restaurantes</a></li>
+                <li><a href="feed.html">Feed</a></li>
+            </ul>
+            <div class="access">
+                <button onclick="showLogin()">Login</button>
+                <button onclick="showCadastro()">Cadastro</button>
+            </div>
+        </div>
+    </header>
+    <dialog class="box-login">
+        <form>
+            <div class="modal-header">
+                <h2 class="modal-title">Login</h2>
+                <button class="close-btn" type="button">
+                    <i class="fa-solid fa-xmark fa-2xl" onclick="closeLogin()"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-box">
+                    <label for="email" class="form-label">E-mail</label>
+                    <div class="input-field">
+                        <input type="email" name="email" id="email" class="form-control"
+                            placeholder="exemplo@exemplo.com">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="password" class="form-label">Senha</label>
+                    <div class="input-field">
+                        <input type="password" name="password" id="password" class="form-control"
+                            placeholder="••••••••">
+                        <i class="fa-solid fa-eye-slash password-icon"></i>
+                    </div>
+                </div>
+                <div class="password-options">
+                    <div class="remember-password">
+                        <input type="checkbox" id="remember_password" name="remember_password">
+                        <label for="remember_password">Lembrar-me</label>
+                    </div>
+
+                    <a href="#" class="forgot-password">Esqueci minha senha</a>
+                </div>
+                <button class="btn-default" type="submit">Entrar</button>
+                <div class="register">
+                    Ainda não tem conta?<br>
+                    <a href="#" onclick="showCadastro()">Cadastre-se</a>
+                </div>
+            </div>
+        </form>
+    </dialog>
+    <dialog class="box-cadastro">
+        <button class="close-btn" type="button">
+            <i class="fa-solid fa-xmark fa-2xl" onclick="closeCadastro()"></i>
+        </button>
+        <div>
+            <button class="btn-default" onclick="location.href='cadastro/cadastro_usuario.html'">Quero avaliar</button>
+            <button class="btn-default" onclick="location.href='cadastro/cadastro_restaurante.html'">Tenho um
+                restaurante</button>
+        </div>
+    </dialog>
+    <main id="main_container_home">
+        <section id="hero">
+            <div id="cta">
+                <h1 class="title">
+                    Descubra os melhores restaurantes perto de
+                    <span>você</span>
+                </h1>
+
+                <p class="description">
+                    Veja avaliações reais, siga amigos e compartilhe suas experiências gastronômicas.
+                </p>
+
+                <div id="cta_buttons">
+                    <a href="#" class="btn-default">
+                        Comece Agora
+                    </a>
+                </div>
+            </div>
+
+            <div id="hero_image"></div>
+        </section>
+        <section id="features_container">
+            <div id="features">
+                <div class="feature">
+                    <i class="fa-solid fa-message"></i>
+                    <h3 class="feature-title">
+                        Opiniões de Verdadeiros Clientes
+                    </h3>
+                    <p>
+                        Leia e compartilhe opiniões sinceras sobre restaurantes.
+                    </p>
+                </div>
+                <div class="feature">
+                    <i class="fa-solid fa-user"></i>
+                    <h3 class="feature-title">
+                        Siga Amigos
+                    </h3>
+                    <p>
+                        Descubra lugares recomendados por quem você confia.
+                    </p>
+                </div>
+                <div class="feature">
+                    <i class="fa-solid fa-utensils"></i>
+                    <h3 class="feature-title">
+                        Encontre Restaurantes
+                    </h3>
+                    <p>
+                        Explore restaurantes por tipo de culinária e avaliações.
+                    </p>
+                </div>
+                <div class="feature">
+                    <i class="fa-solid fa-tag"></i>
+                    <h3 class="feature-title">
+                        Promoções Exclusivas
+                    </h3>
+                    <p>
+                        Restaurantes parceiros oferecem descontos para usuários da plataforma.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div id="footer_content">
+            <div id="footer_social_media">
+                <a href="#" id="instagram">
+                    <i class="fa-brands fa-instagram fa-2xl"></i>
+                </a>
+                <a href="#" id="facebook">
+                    <i class="fa-brands fa-facebook-f fa-2xl"></i>
+                </a>
+                <a href="#" id="twitter">
+                    <i class="fa-brands fa-x-twitter fa-2xl"></i>
+                </a>
+                <a href="#" id="youtube">
+                    <i class="fa-brands fa-youtube fa-2xl"></i>
+                </a>
+            </div>
+            <ul>
+                <li><a href="#">Sobre nós</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="#">Política de Privacidade</a></li>
+                <li><a href="#">Termos de uso</a></li>
+            </ul>
+        </div>
+        <div id="footer_copyright">
+            Copyright &copy; 2025 all rights reserved
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/51087b88d3.js" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

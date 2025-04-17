@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <title>Cadastro de Restaurante</title>
+</head>
+
+<body>
+    <main id="form_container">
+        <section id="form_content">
+            <div id="form_header">
+                <h1 id="form_title">Cadastro</h1>
+            </div>
+            <form action="#">
+                <div id="input_container">
+                    <div class="input-box">
+                        <label for="name" class="form-label">Nome do restaurante</label>
+                        <div class="input-field">
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Restaurante">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label for="cnpj" class="form-label">CNPJ</label>
+                        <div class="input-field">
+                            <input type="number" name="cnpj" id="cnpj" class="form-control"
+                                placeholder="00.000.000/0000-00">
+                            <i class="fa-solid fa-landmark"></i>
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="telphone" class="form-label">Telefone</label>
+                        <div class="input-field">
+                            <input type="tel" name="telphone" id="telphone" class="form-control"
+                                placeholder="(99) 9999-9999">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label for="celphone" class="form-label">Celular</label>
+                        <div class="input-field">
+                            <input type="tel" name="celphone" id="celphone" class="form-control"
+                                placeholder="(99) 99999-9999">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label for="email" class="form-label">E-mail comercial</label>
+                        <div class="input-field">
+                            <input type="email" name="email" id="email" class="form-control"
+                                placeholder="exemplo@exemplo.com">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label for="email" class="form-label">Confirmar e-mail</label>
+                        <div class="input-field">
+                            <input type="email" name="confirm_email" id="confirm_email" class="form-control"
+                                placeholder="exemplo@exemplo.com">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label for="password" class="form-label">Senha</label>
+                        <div class="input-field">
+                            <input type="password" name="password" id="password" class="form-control"
+                                placeholder="••••••••">
+                            <i class="fa-solid fa-eye-slash password-icon"></i>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <label for="confirm_password" class="form-label">Confirmar senha</label>
+                        <div class="input-field">
+                            <input type="password" name="confirm_password" id="confirm_password" class="form-control"
+                                placeholder="••••••••">
+                            <i class="fa-solid fa-eye-slash password-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn-default btn-spacing">Criar conta</button>
+            </form>
+            <div class="to-login">
+                <p>Já possui conta?</p>
+                <a href="index.html">Faça login</a>
+            </div>
+        </section>
+    </main>
+    <script src="https://kit.fontawesome.com/51087b88d3.js" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>

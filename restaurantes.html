@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Restaurantes</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div id="logo">
+                <a href="index.html"><i class="fa-solid fa-utensils"></i> CoolMida</a>
+            </div>
+            <div class="menu-items">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="restaurantes.html">Restaurantes</a></li>
+                    <li><a href="feed.html">Feed</a></li>
+                </ul>
+            </div>
+            <!-- <div class="access">
+                <button onclick="showLogin()">Login</button>
+                |
+                <button onclick="showCadastro()">Cadastro</button>
+            </div> -->
+            <div class="profile">
+                <div class="profile-btn">
+                    <button>
+                        <img src="assets/images/foto_perfil.png" alt="Perfil">
+                    </button>
+                </div>
+                <div class="profile-options-list">
+                    <div>
+                        <img src="assets/images/foto_perfil.png" alt="Perfil">
+                        <span>Nome</span>
+                    </div>
+                    <hr>
+                    <ul>
+                        <li><a href="perfil_usuario"><i class="fa-solid fa-user"></i> Meu perfil</a></li>
+                        <li><a href="#"><i class="fa-solid fa-question"></i> Ajuda</a></li>
+                        <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Sair</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mobile-menu-icon">
+                <button onclick="showMenu()"><i id="menu-icon" class="fa-solid fa-bars"></i></button>
+            </div>
+        </nav>
+        <div class="menu-items mobile-menu">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="restaurantes.html">Restaurantes</a></li>
+                <li><a href="feed.html">Feed</a></li>
+            </ul>
+            <div class="access">
+                <button onclick="showLogin()">Login</button>
+                <button onclick="showCadastro()">Cadastro</button>
+            </div>
+        </div>
+    </header>
+    <dialog class="box-login">
+        <form>
+            <div class="modal-header">
+                <h1 class="modal-title">Login</h1>
+                <button class="close-btn" type="button">
+                    <i class="fa-solid fa-xmark fa-2xl" onclick="closeLogin()"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-box">
+                    <label for="email" class="form-label">E-mail</label>
+                    <div class="input-field">
+                        <input type="email" name="email" id="email" class="form-control"
+                            placeholder="exemplo@exemplo.com">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="password" class="form-label">Senha</label>
+                    <div class="input-field">
+                        <input type="password" name="password" id="password" class="form-control"
+                            placeholder="••••••••">
+                        <i class="fa-solid fa-eye-slash password-icon"></i>
+                    </div>
+                </div>
+                <div class="password-options">
+                    <div class="remember-password">
+                        <input type="checkbox" id="remember_password" name="remember_password">
+                        <label for="remember_password">Lembrar-me</label>
+                    </div>
+
+                    <a href="#" class="forgot-password">Esqueci minha senha</a>
+                </div>
+                <button class="btn-default" type="submit">Entrar</button>
+                <div class="register">
+                    Ainda não tem conta?<br>
+                    <a href="#" onclick="showCadastro()">Cadastre-se</a>
+                </div>
+            </div>
+        </form>
+    </dialog>
+    <dialog class="box-cadastro">
+        <button class="close-btn" type="button">
+            <i class="fa-solid fa-xmark fa-2xl" onclick="closeCadastro()"></i>
+        </button>
+        <div>
+            <button class="btn-default" onclick="location.href='cadastro/cadastro_usuario.html'">Quero avaliar</button>
+            <button class="btn-default" onclick="location.href='cadastro/cadastro_restaurante.html'">Tenho um
+                restaurante</button>
+        </div>
+    </dialog>
+    <main id="main_container_restaurants">
+        <div id="search_container">
+            <div id="search_box">
+                <input type="text" id="search" placeholder="Pesquisar">
+                <i class="fa-solid fa-search"></i>
+            </div>
+            <div>
+                <button class="btn-default btn-filter">
+                    <i class="fa-solid fa-filter"></i>
+                </button>
+                <div id="filter_content">
+                    <section>
+                        <h3>Tipo de culinária</h3>
+                        <div class="cooking">
+                            <div class="cooking-selection">
+                                <input type="checkbox" id="brasileira">
+                                <label for="brasileira">Brasileira</label>
+                            </div>
+                            <div class="cooking-selection">
+                                <input type="checkbox" id="japonesa">
+                                <label for="japonesa">Japonesa</label>
+                            </div>
+                            <div class="cooking-selection">
+                                <input type="checkbox" id="chinesa">
+                                <label for="chinesa">Chinesa</label>
+                            </div>
+                            <div class="cooking-selection">
+                                <input type="checkbox" id="italiana">
+                                <label for="italiana">Italiana</label>
+                            </div>
+                            <div class="cooking-selection">
+                                <input type="checkbox" id="mexicana">
+                                <label for="mexicana">Mexicana</label>
+                            </div>
+                            <div class="cooking-selection">
+                                <input type="checkbox" id="indiana">
+                                <label for="indiana">Indiana</label>
+                            </div>
+                            <div class="cooking-selection">
+                                <input type="checkbox" id="vegana">
+                                <label for="vegana">Vegana / Vegetariana</label>
+                            </div>
+                            <div class="cooking-selection">
+                                <input type="checkbox" id="fast-food">
+                                <label for="fast-food">Fast Food</label>
+                            </div>
+                            <div class="cooking-selection">
+                                <input type="checkbox" id="churrasco">
+                                <label for="churrasco">Churrasco</label>
+                            </div>
+                            <div class="cooking-selection">
+                                <input type="checkbox" id="fruto-mar">
+                                <label for="fruto-mar">Frutos do Mar</label>
+                            </div>
+                            <div class="cooking-selection">
+                                <input type="checkbox" id="saudavel">
+                                <label for="saudavel">Saudável / Fit</label>
+                            </div>
+                            <div class="cooking-selection">
+                                <input type="checkbox" id="doce">
+                                <label for="doce">Doces & Sobremesas</label>
+                            </div>
+                        </div>
+                    </section>
+                    <hr>
+                    <section class="filter-section-2">
+                        <div class="services">
+                            <h3>Serviços</h3>
+                            <div class="services-selection">
+                                <input type="checkbox" id="delivery">
+                                <label for="delivery">Delivery</label>
+                            </div>
+                            <div class="services-selection">
+                                <input type="checkbox" id="retirada">
+                                <label for="retirada">Retirada</label>
+                            </div>
+                            <div class="services-selection">
+                                <input type="checkbox" id="reservas">
+                                <label for="reservas">Reservas</label>
+                            </div>
+                        </div>
+                        <div class="payment">
+                            <h3>Formas de pagamento</h3>
+                            <div class="payment-selection">
+                                <input type="checkbox" id="cartao-credito">
+                                <label for="cartao-credito">Cartão de crédito</label>
+                            </div>
+                            <div class="payment-selection">
+                                <input type="checkbox" id="cartao-debito">
+                                <label for="cartao-debito">Cartão de débito</label>
+                            </div>
+                            <div class="payment-selection">
+                                <input type="checkbox" id="dinheiro">
+                                <label for="dinheiro">Dinheiro</label>
+                            </div>
+                        </div>
+                    </section>
+                    <button class="btn-default">Aplicar filtros</button>
+                </div>
+            </div>
+            <div>
+                <button class="btn-default btn-sort">
+                    <i class="fa-solid fa-arrow-up-wide-short"></i>
+                </button>
+                <div id="sort_content">
+                    <h3>Ordenar por</h3>
+                    <div id="sort_selection">
+                        <div class="sort-radio">
+                            <input type="radio" id="pior-avaliacao" name="sort" value="pior-avaliacao">
+                            <label for="pior-avaliacao">Melhores avaliações</label>
+                        </div>
+                        <div class="sort-radio">
+                            <input type="radio" id="melhor-avaliacao" name="sort" value="melhor-avaliacao">
+                            <label for="melhor-avaliacao">Mais avaliados</label>
+                        </div>
+                        <div class="sort-radio">
+                            <input type="radio" id="mais-recentes" name="sort" value="mais-recentes">
+                            <label for="mais-recentes">Mais recentes</label>
+                        </div>
+                        <div class="sort-radio">
+                            <input type="radio" id="mais-antigos" name="sort" value="mais-antigos">
+                            <label for="mais-antigos">Mais antigos</label>
+                        </div>
+                    </div>
+                    <button class="btn-default">Aplicar</button>
+                </div>
+            </div>
+        </div>
+        <section>
+            <h2>Restaurantes</h2>
+            <div class="restaurant-box">
+                <div>
+                    <img src="assets/images/banner.png" alt="Banner">
+                    <img src="assets/images/foto_perfil.png" alt="Foto de perfil">
+                    Nome
+                </div>
+                <p>
+                    Categoria
+                </p>
+                <p>
+                    Avaliação (estrelas)
+                </p>
+                <p>
+                    Cidade
+                </p>
+                <button>Ver mais ></button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div id="footer_content">
+            <div id="footer_social_media">
+                <a href="#" id="instagram">
+                    <i class="fa-brands fa-instagram fa-2xl"></i>
+                </a>
+                <a href="#" id="facebook">
+                    <i class="fa-brands fa-facebook-f fa-2xl"></i>
+                </a>
+                <a href="#" id="twitter">
+                    <i class="fa-brands fa-x-twitter fa-2xl"></i>
+                </a>
+                <a href="#" id="youtube">
+                    <i class="fa-brands fa-youtube fa-2xl"></i>
+                </a>
+            </div>
+            <ul>
+                <li><a href="#">Sobre nós</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="#">Política de Privacidade</a></li>
+                <li><a href="#">Termos de uso</a></li>
+            </ul>
+        </div>
+        <div id="footer_copyright">
+            Copyright &copy; 2025 all rights reserved
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/51087b88d3.js" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
