@@ -63,6 +63,7 @@ const filterContent = document.querySelector("#filter_content");
 
 btnFilter.addEventListener("click", (event) => {
     event.stopPropagation();
+    sortContent.classList.remove("active");
     filterContent.classList.toggle("active");
 });
 
@@ -79,6 +80,7 @@ const sortContent = document.querySelector("#sort_content");
 
 btnSort.addEventListener("click", (event) => {
     event.stopPropagation();
+    filterContent.classList.remove("active");
     sortContent.classList.toggle("active");
 });
 

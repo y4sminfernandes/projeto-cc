@@ -474,6 +474,10 @@ input:-webkit-autofill {
         flex-direction: column;
         gap: 38rem;
     }
+
+    .form-control[type="date"] {
+        background-color: #fff;
+    }
 }
 
 .to-login {
@@ -521,6 +525,10 @@ input:-webkit-autofill {
     color: var(--secondary-color);
 }
 
+#cta button {
+    width: 35%;
+}
+
 #hero_image {
     flex: 1;
     background: url('../images/hero.jpg') no-repeat center center/cover;
@@ -543,6 +551,10 @@ input:-webkit-autofill {
         width: 100%;
         text-align: center;
         align-items: center;
+    }
+    
+    #cta button {
+        width: auto;
     }
 }
 
@@ -620,6 +632,7 @@ input:-webkit-autofill {
 
 #search_container {
     display: flex;
+    
     justify-content: center;
     gap: 10rem;
 }
@@ -649,6 +662,27 @@ input:-webkit-autofill {
 #search:focus {
     width: 350rem;
     outline: none;
+}
+
+#search_btns {
+    display: flex;
+    justify-content: center;
+    gap: 10rem;
+}
+
+@media screen and (max-width: 768px) {
+    #search_container {
+        flex-direction: column;
+    }
+
+    #search_box {
+        justify-content: space-between;
+    }
+    
+    #search {
+        width: 100%;
+        transition: none;
+    }
 }
 
 #filter_content {
