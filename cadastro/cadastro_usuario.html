@@ -9,6 +9,43 @@
 </head>
 
 <body>
+    <dialog class="box-login">
+        <form>
+            <div class="modal-header">
+                <h1 class="modal-title">Login</h1>
+                <button class="close-btn" type="button">
+                    <i class="fa-solid fa-xmark fa-2xl" onclick="closeLogin()"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-box">
+                    <label for="email" class="form-label">E-mail</label>
+                    <div class="input-field">
+                        <input type="email" name="email" id="email" class="form-control"
+                            placeholder="exemplo@exemplo.com">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="password" class="form-label">Senha</label>
+                    <div class="input-field">
+                        <input type="password" name="password" id="password" class="form-control"
+                            placeholder="••••••••">
+                        <i class="fa-solid fa-eye-slash password-icon"></i>
+                    </div>
+                </div>
+                <div class="password-options">
+                    <div class="remember-password">
+                        <input type="checkbox" id="remember_password" name="remember_password">
+                        <label for="remember_password">Lembrar-me</label>
+                    </div>
+
+                    <a href="#" class="forgot-password">Esqueci minha senha</a>
+                </div>
+                <button class="btn-default" type="submit">Entrar</button>
+            </div>
+        </form>
+    </dialog>
     <main id="form_container">
         <section id="form_content">
             <div id="form_header">
@@ -97,9 +134,9 @@
                 </div>
                 <button type="submit" class="btn-default">Criar conta</button>
             </form>
-            <div class="to-login">
+            <div id="to-login">
                 <p>Já possui conta?</p>
-                <a href="../index.html">Faça login</a>
+                <a onclick="showLogin()">Faça login</a>
             </div>
         </section>
     </main>
