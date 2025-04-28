@@ -42,7 +42,7 @@ passwordIcons.forEach(icon => {
     })
 });
 
-const btnProfile = document.querySelector(".profile-btn button");
+const btnProfile = document.querySelector("#profile-btn");
 const profileOptions = document.querySelector(".profile-options-list");
 
 btnProfile.addEventListener("click", (event) => {
@@ -65,6 +65,7 @@ btnFilter.addEventListener("click", (event) => {
     event.stopPropagation();
     sortContent.classList.remove("active");
     filterContent.classList.toggle("active");
+    console.log("Filter button clicked");
 });
 
 filterContent.addEventListener("click", (event) => {

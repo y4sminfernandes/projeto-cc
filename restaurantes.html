@@ -21,17 +21,15 @@
                     <li><a href="feed.html">Feed</a></li>
                 </ul>
             </div>
-            <!-- <div class="access">
+            <div class="access">
                 <button onclick="showLogin()">Login</button>
                 |
                 <button onclick="showCadastro()">Cadastro</button>
-            </div> -->
-            <div class="profile">
-                <div class="profile-btn">
-                    <button>
-                        <img src="assets/images/foto_perfil.png" alt="Perfil">
-                    </button>
-                </div>
+            </div>
+            <div id="profile">
+                <button id="profile-btn">
+                    <img src="assets/images/foto_perfil.png" alt="Perfil">
+                </button>
                 <div class="profile-options-list">
                     <div>
                         <img src="assets/images/foto_perfil.png" alt="Perfil">
@@ -179,21 +177,6 @@
                         </section>
                         <hr>
                         <section class="filter-section-2">
-                            <div class="services">
-                                <h3>Serviços</h3>
-                                <div class="services-selection">
-                                    <input type="checkbox" id="delivery">
-                                    <label for="delivery">Delivery</label>
-                                </div>
-                                <div class="services-selection">
-                                    <input type="checkbox" id="retirada">
-                                    <label for="retirada">Retirada</label>
-                                </div>
-                                <div class="services-selection">
-                                    <input type="checkbox" id="reservas">
-                                    <label for="reservas">Reservas</label>
-                                </div>
-                            </div>
                             <div class="payment">
                                 <h3>Formas de pagamento</h3>
                                 <div class="payment-selection">
@@ -207,6 +190,21 @@
                                 <div class="payment-selection">
                                     <input type="checkbox" id="dinheiro">
                                     <label for="dinheiro">Dinheiro</label>
+                                </div>
+                            </div>
+                            <div class="services">
+                                <h3>Serviços</h3>
+                                <div class="services-selection">
+                                    <input type="checkbox" id="delivery">
+                                    <label for="delivery">Delivery</label>
+                                </div>
+                                <div class="services-selection">
+                                    <input type="checkbox" id="retirada">
+                                    <label for="retirada">Retirada</label>
+                                </div>
+                                <div class="services-selection">
+                                    <input type="checkbox" id="reservas">
+                                    <label for="reservas">Reservas</label>
                                 </div>
                             </div>
                         </section>
@@ -243,39 +241,315 @@
             </div>
         </div>
         <section>
-            <h2>Restaurantes</h2>
-            <div id="cards">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="assets/images/foto_restaurante.png" alt="Foto restaurante">
+            <h1>Restaurantes</h1>
+            <div id="cards_container">
+                <a href="#">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/images/foto_restaurante.png" alt="Foto restaurante">
+                        </div>
+                        <div class="card-info">
+                            <h3>Nome do restaurante</h3>
+                            <div>
+                                Categoria
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span>5,0</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Cidade
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-info">
-                        <div class="card-title">
-                            Nome do restaurante
+                </a>
+                <a href="#">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/images/foto_restaurante.png" alt="Foto restaurante">
                         </div>
-                        <div>
-                            Categoria
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"> 5,0</i>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-location-dot"></i>
-                            Cidade
+                        <div class="card-info">
+                            <h3>Nome do restaurante</h3>
+                            <div>
+                                Categoria
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span>5,0</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Cidade
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
+                <a href="#">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/images/foto_restaurante.png" alt="Foto restaurante">
+                        </div>
+                        <div class="card-info">
+                            <h3>Nome do restaurante</h3>
+                            <div>
+                                Categoria
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span>5,0</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Cidade
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/images/foto_restaurante.png" alt="Foto restaurante">
+                        </div>
+                        <div class="card-info">
+                            <h3>Nome do restaurante</h3>
+                            <div>
+                                Categoria
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span>5,0</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Cidade
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/images/foto_restaurante.png" alt="Foto restaurante">
+                        </div>
+                        <div class="card-info">
+                            <h3>Nome do restaurante</h3>
+                            <div>
+                                Categoria
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span>5,0</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Cidade
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/images/foto_restaurante.png" alt="Foto restaurante">
+                        </div>
+                        <div class="card-info">
+                            <h3>Nome do restaurante</h3>
+                            <div>
+                                Categoria
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span>5,0</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Cidade
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/images/foto_restaurante.png" alt="Foto restaurante">
+                        </div>
+                        <div class="card-info">
+                            <h3>Nome do restaurante</h3>
+                            <div>
+                                Categoria
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span>5,0</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Cidade
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/images/foto_restaurante.png" alt="Foto restaurante">
+                        </div>
+                        <div class="card-info">
+                            <h3>Nome do restaurante</h3>
+                            <div>
+                                Categoria
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span>5,0</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Cidade
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/images/foto_restaurante.png" alt="Foto restaurante">
+                        </div>
+                        <div class="card-info">
+                            <h3>Nome do restaurante</h3>
+                            <div>
+                                Categoria
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span>5,0</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Cidade
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/images/foto_restaurante.png" alt="Foto restaurante">
+                        </div>
+                        <div class="card-info">
+                            <h3>Nome do restaurante</h3>
+                            <div>
+                                Categoria
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span>5,0</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Cidade
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/images/foto_restaurante.png" alt="Foto restaurante">
+                        </div>
+                        <div class="card-info">
+                            <h3>Nome do restaurante</h3>
+                            <div>
+                                Categoria
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span>5,0</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Cidade
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="assets/images/foto_restaurante.png" alt="Foto restaurante">
+                        </div>
+                        <div class="card-info">
+                            <h3>Nome do restaurante</h3>
+                            <div>
+                                Categoria
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <span>5,0</span>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Cidade
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
         </section>
         <div id="pagination">
-            <button class="pagination-btn first">
+            <button class="pagination-btn" id="first">
                 <i class="fa-solid fa-angles-left"></i>
             </button>
-            <button class="pagination-btn first">
+            <button class="pagination-btn" id="preview">
                 <i class="fa-solid fa-angle-left"></i>
             </button>
             <div id="pagination_links">
@@ -283,10 +557,10 @@
                 <a href="#">2</a>
                 <a href="#">3</a>
             </div>
-            <button class="pagination-btn first">
+            <button class="pagination-btn" id="next">
                 <i class="fa-solid fa-angle-right"></i>
             </button>
-            <button class="pagination-btn first">
+            <button class="pagination-btn" id="last">
                 <i class="fa-solid fa-angles-right"></i>
             </button>
         </div>

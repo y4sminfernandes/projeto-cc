@@ -103,15 +103,24 @@ nav {
     padding: 8rem;
 }
 
-.profile button {
+.access button:hover {
+    background-color: var(--secondary-color);
+    color: var(--main-bg-color);
+    transition: 0.3s;
+}
+
+#profile {
+    display: none;
+}
+
+#profile-btn {
     height: 50rem;
     width: 50rem;
     border-radius: 50%;
     padding: 3rem;
-
 }
 
-.profile-btn img {
+#profile-btn img {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -634,6 +643,12 @@ input:-webkit-autofill {
     margin: 5%;
 }
 
+#main_container_restaurants h1 {
+    text-align: center;
+    margin: 20rem auto;
+    color: var(--secondary-color);
+}
+
 #search_container {
     display: flex;
 
@@ -704,6 +719,7 @@ input:-webkit-autofill {
     max-height: 0;
     overflow: hidden;
     transition: all 0.5s;
+    z-index: 1;
 }
 
 #filter_content.active {
@@ -728,6 +744,14 @@ input:-webkit-autofill {
     justify-content: space-around;
 }
 
+@media screen and (max-width: 600px) {
+    .filter-section-2 {
+        flex-direction: column;
+        align-items: center;
+        gap: 20rem;
+    }
+}
+
 .cooking {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -746,6 +770,7 @@ input:-webkit-autofill {
     display: flex;
     flex-direction: column;
     gap: 10rem;
+    z-index: 1;
 }
 
 #sort_content.active {
@@ -753,12 +778,16 @@ input:-webkit-autofill {
     padding: 15rem;
 }
 
-#cards {
+#cards_container {
+    max-width: 1200rem;
+    margin: 0 auto;
     display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250rem, 1fr));
     gap: 15rem;
 }
 
 .card {
+    color: var(--main-text-color);
     background-color: #fff;
     border-radius: 10rem;
     box-shadow: 0 0 10rem rgba(0, 0, 0, 0.2);
@@ -787,19 +816,14 @@ input:-webkit-autofill {
     text-align: center;
 }
 
-.card-title {
+.card-info h3 {
     font-size: 20rem;
     font-weight: 500;
-
 }
 
-.card .fa-star {
+.card .fa-star, .card span {
     color: var(--tertiary-color);
-}
-
-.card a {
-    color: var(--primary-color);
-    font-weight: 500;
+    font-size: 18rem;
 }
 
 .card:hover {
@@ -807,10 +831,10 @@ input:-webkit-autofill {
     transition: all 0.3s;
 }
 
-#pagination {
+#pagination, #pagination_links {
     display: flex;
     justify-content: center;
-    gap: 12rem;
+    gap: 10rem;
 }
 
 #pagination button,
@@ -818,14 +842,22 @@ input:-webkit-autofill {
     font-size: 25rem;
     color: var(--secondary-color);
     background: transparent;
-    height: 40rem;
-    width: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35rem;
+    width: 35rem;
+}
+
+#pagination a {
+    border-radius: 5rem;
 }
 
 #pagination button:hover,
 #pagination a:hover {
     color: var(--main-bg-color);
     background-color: var(--secondary-color);
+    transition: all 0.3s;
 }
 
 footer {
