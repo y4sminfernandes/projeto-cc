@@ -450,7 +450,7 @@ input:-webkit-autofill {
 #hero {
     display: flex;
     justify-content: space-between;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 #cta {
@@ -666,7 +666,7 @@ input:-webkit-autofill {
     font-weight: 500;
 }
 
-.card .fa-star, .card span {
+.card .fa-star, .card span, .review-info i, .review-info span {
     color: var(--tertiary-color);
     font-size: 18rem;
 }
@@ -712,6 +712,48 @@ input:-webkit-autofill {
     cursor: not-allowed;
 }
 
+#feed {
+    margin: 30rem auto;
+}
+
+#feed h1 {
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+#review_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250rem, 1fr));
+}
+
+.review {
+    background-color: #fff;
+    border-radius: 8rem;
+    box-shadow: 0 0 10rem rgba(0, 0, 0, 0.2);
+    padding: 10rem;
+    margin: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.review img {
+    width: 35rem;
+    height: 35rem;
+    border-radius: 50%;
+}
+
+.review-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-actions button {
+    background: transparent;
+    color: var(--input-text-color);
+    margin-right: 10rem;
+}
 
 footer {
     width: 100%;
@@ -779,7 +821,7 @@ footer ul {
 
 @media screen and (max-width: 1170px) {
     #hero {
-        height: 50vh;
+        min-height: 50vh;
     }
 
     #home_image,
@@ -862,7 +904,7 @@ footer ul {
     }
 
     #hero {
-        height: 85vh;
+        min-height: 100vh;
     }
 
     #home_image,
