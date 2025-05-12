@@ -4,7 +4,8 @@
     --main-bg-color: #F8F9FA;
     --primary-color: #FF6B35;
     --secondary-color: #06D6A0;
-    --tertiary-color: #FFD166;
+    --tertiary-color: #EF476F;
+    --quaternary-color: #FFD166;
     --main-text-color: #333333;
     --input-text-color: #6C757D;
 }
@@ -302,7 +303,7 @@ dialog a {
 }
 
 .btn-default:hover {
-    background-color: var(--tertiary-color);
+    background-color: var(--quaternary-color);
     color: var(--main-text-color);
 }
 
@@ -421,17 +422,49 @@ input:-webkit-autofill {
     accent-color: #06D6A0;
 }
 
-#to-login {
+#to_login {
     text-align: center;
     font-weight: 500;
 }
 
-#to-login a:hover {
+#to_login a:hover {
     cursor: pointer;
 }
 
 #form_container a {
     color: var(--primary-color);
+}
+
+.error {
+    color: var(--tertiary-color);
+    font-size: 12rem;
+    margin-top: 4rem;
+    max-width: 200rem;
+
+}
+
+.input-box.invalid .form-label {
+    color: var(--tertiary-color);
+}
+
+.input-box.invalid .input-field {
+    border: 1rem solid var(--tertiary-color);
+}
+
+.input-box.valid .form-label {
+    color: var(--secondary-color);
+}
+
+.input-box.valid .input-field {
+    border: 1rem solid var(--secondary-color);
+}
+
+.radio-container.invalid .form-label:first-child {
+    color: var(--tertiary-color);
+}
+
+.radio-container.valid .form-label:first-child {
+    color: var(--secondary-color);
 }
 
 #main_container_home section:not(#hero) {
@@ -512,14 +545,14 @@ input:-webkit-autofill {
     color: var(--secondary-color);
 }
 
-#main_container_restaurants {
+#main_container {
     display: flex;
     flex-direction: column;
     gap: 24rem;
     margin: 5%;
 }
 
-#main_container_restaurants h1 {
+#main_container h1 {
     text-align: center;
     margin: 20rem auto;
     color: var(--secondary-color);
@@ -666,8 +699,11 @@ input:-webkit-autofill {
     font-weight: 500;
 }
 
-.card .fa-star, .card span, .review-info i, .review-info span {
-    color: var(--tertiary-color);
+.card .fa-star,
+.card span,
+.review-info i,
+.review-info span {
+    color: var(--quaternary-color);
     font-size: 18rem;
 }
 
@@ -676,7 +712,8 @@ input:-webkit-autofill {
     transition: all 0.3s;
 }
 
-#pagination, #pagination_numbers {
+#pagination,
+#pagination_numbers {
     display: flex;
     justify-content: center;
     gap: 8rem;
@@ -712,41 +749,38 @@ input:-webkit-autofill {
     cursor: not-allowed;
 }
 
-#feed {
-    margin: 30rem auto;
-}
-
 #feed h1 {
     color: var(--secondary-color);
-    text-align: center;
 }
 
 #review_container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250rem, 1fr));
+    margin: 0 auto;
+    max-width: 1200rem;
+    gap: 15rem;
 }
 
 .review {
     background-color: #fff;
     border-radius: 8rem;
     box-shadow: 0 0 10rem rgba(0, 0, 0, 0.2);
-    padding: 10rem;
-    margin: 10rem;
+    padding: 15rem;
     display: flex;
     flex-direction: column;
     gap: 5rem;
 }
 
 .review img {
-    width: 35rem;
-    height: 35rem;
+    width: 40rem;
+    height: 40rem;
     border-radius: 50%;
 }
 
 .review-info {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
+    padding: 8rem;
+    gap: 15rem;
 }
 
 .review-actions button {

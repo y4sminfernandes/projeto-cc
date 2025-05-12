@@ -12,7 +12,7 @@
     <dialog class="box-login">
         <form>
             <div class="modal-header">
-                <h1 class="modal-title">Login</h1>
+                <h2 class="modal-title">Login</h2>
                 <button class="close-btn" type="button">
                     <i class="fa-solid fa-xmark fa-2xl" onclick="closeLogin()"></i>
                 </button>
@@ -21,7 +21,7 @@
                 <div class="input-box">
                     <label for="email" class="form-label">E-mail</label>
                     <div class="input-field">
-                        <input type="email" name="email" id="email" class="form-control"
+                        <input type="email" name="email" id="login_email" class="form-control"
                             placeholder="exemplo@exemplo.com">
                         <i class="fa-solid fa-envelope"></i>
                     </div>
@@ -29,7 +29,7 @@
                 <div class="input-box">
                     <label for="password" class="form-label">Senha</label>
                     <div class="input-field">
-                        <input type="password" name="password" id="password" class="form-control"
+                        <input type="password" name="password" id="login_password" class="form-control"
                             placeholder="••••••••">
                         <i class="fa-solid fa-eye-slash password-icon"></i>
                     </div>
@@ -59,7 +59,8 @@
                             <input type="text" name="name" id="name" class="form-control" placeholder="João">
                             <i class="fa-solid fa-user"></i>
                         </div>
-                    </div>
+                        <span class="error"></span>
+                    </div>   
                     <div class="input-box">
                         <label for="last_name" class="form-label">Sobrenome</label>
                         <div class="input-field">
@@ -67,20 +68,23 @@
                                 placeholder="da Silva">
                             <i class="fa-solid fa-user"></i>
                         </div>
+                        <span class="error"></span>
                     </div>
                     <div class="input-box">
                         <label for="birthdate" class="form-label">Data de nascimento</label>
                         <div class="input-field">
                             <input type="date" name="birthdate" id="birthdate" class="form-control">
                         </div>
+                        <span class="error"></span>
                     </div>
                     <div class="input-box">
-                        <label for="telphone" class="form-label">Telefone</label>
+                        <label for="celphone" class="form-label">Celular</label>
                         <div class="input-field">
-                            <input type="tel" name="telphone" id="telphone" class="form-control"
+                            <input type="tel" name="celphone" id="celphone" class="form-control"
                                 placeholder="(99) 99999-9999">
                             <i class="fa-solid fa-phone"></i>
                         </div>
+                        <span class="error"></span>
                     </div>
                     <div class="input-box">
                         <label for="email" class="form-label">E-mail</label>
@@ -89,6 +93,7 @@
                                 placeholder="exemplo@exemplo.com">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
+                        <span class="error"></span>
                     </div>
                     <div class="input-box">
                         <label for="email" class="form-label">Confirmar e-mail</label>
@@ -97,6 +102,7 @@
                                 placeholder="exemplo@exemplo.com">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
+                        <span class="error"></span>
                     </div>
                     <div class="input-box">
                         <label for="password" class="form-label">Senha</label>
@@ -105,6 +111,7 @@
                                 placeholder="••••••••">
                             <i class="fa-solid fa-eye-slash password-icon"></i>
                         </div>
+                        <span class="error"></span>
                     </div>
                     <div class="input-box">
                         <label for="confirm_password" class="form-label">Confirmar senha</label>
@@ -113,6 +120,7 @@
                                 placeholder="••••••••">
                             <i class="fa-solid fa-eye-slash password-icon"></i>
                         </div>
+                        <span class="error"></span>
                     </div>
                     <div class="radio-container">
                         <label class="form-label">Gênero</label>
@@ -130,11 +138,12 @@
                                 <label for="other" class="form-label">Outro</label>
                             </div>
                         </div>
+                        <span class="error"></span>
                     </div>
                 </div>
                 <button type="submit" class="btn-default">Criar conta</button>
             </form>
-            <div id="to-login">
+            <div id="to_login">
                 <p>Já possui conta?</p>
                 <a onclick="showLogin()">Faça login</a>
             </div>
@@ -142,6 +151,7 @@
     </main>
     <script src="https://kit.fontawesome.com/51087b88d3.js" crossorigin="anonymous"></script>
     <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/sign.js"></script>
 </body>
 
 </html>
