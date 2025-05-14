@@ -271,3 +271,33 @@ function init() {
 }
 
 init();
+
+const form = document.getElementById("form");
+const name = document.getElementById("name");
+const last_name = document.getElementById("last_name");
+const email = document.getElementById("email");
+const confirm_email = document.getElementById("confirm_email");
+const password = document.getElementById("password");
+const confirm_password = document.getElementById("confirm_password");
+
+form.addEventListener ("submit", (event) => {
+    event.preventDefault();
+
+    checkInputUsername();
+})
+
+function checkInputUsername(){
+    const usernameValue = username.value;
+
+    if (usernameValue === ""){
+        errorInput(username, "Preencha um usuario!")
+    }
+}
+
+function errorInput(input, message){
+    const formItem = input.parentElement;
+    const textMessage = formItem.querySelector("a")
+
+    textMessage.innerText = message;
+    formItem.className = "form-content error"
+}
