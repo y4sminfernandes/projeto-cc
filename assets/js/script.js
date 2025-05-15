@@ -272,32 +272,74 @@ function init() {
 
 init();
 
-const form = document.getElementById("form");
-const name = document.getElementById("name");
-const last_name = document.getElementById("last_name");
-const email = document.getElementById("email");
-const confirm_email = document.getElementById("confirm_email");
-const password = document.getElementById("password");
-const confirm_password = document.getElementById("confirm_password");
+document.addEventListener('DOMContentLoaded', init);
 
-form.addEventListener ("submit", (event) => {
-    event.preventDefault();
-
-    checkInputUsername();
-})
-
-function checkInputUsername(){
-    const usernameValue = username.value;
-
-    if (usernameValue === ""){
-        errorInput(username, "Preencha um usuario!")
-    }
+function init() {
+  fetch('http://localhost:3000/api/restaurantes')
+    .then(response => response.json())  
+    .then(data => {
+      console.log(data);  
+      displayRestaurants(data); 
+    })
+    .catch(error => {
+      console.error('Erro na busca dos restaurantes:', error);
+    });
 }
 
-function errorInput(input, message){
-    const formItem = input.parentElement;
-    const textMessage = formItem.querySelector("a")
+function displayRestaurants(restaurants) {
+  const container = document.getElementById('cards_container'); 
 
-    textMessage.innerText = message;
-    formItem.className = "form-content error"
+  restaurants.forEach(restaurant => {
+    const card = document.createElement('div');
+    card.classList.add('restaurant-card');  
+    card.innerHTML = `
+      <h3>${restaurant.name}</h3>  <!-- Nome do restaurante -->
+      <p>Tipo de Culinária: ${restaurant.type}</p>  <!-- Tipo de comida -->
+    `;
+    container.appendChild(card);  
+  });
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('form');
+  form.addEventListener('submit', handleFormSubmit); 
+});
+async function handleFormSubmit(event) {
+  event.preventDefault(); 
+const formData = {
+    nome: document.getElementById('name').value,
+    cnpj: document.getElementById('cnpj').value,
+    telefone: document.getElementById('telphone').value,
+    celular: document.getElementById('celphone').value,
+    email_comercial: document.getElementById('email').value,
+    confirm_email: document.getElementById('confirm_email').value,
+    senha: document.getElementById('password').value,
+    confirm_senha: document.getElementById('confirm_password').value,
+  };
+
+  if (formData.email_comercial !== formData.confirm_email) {
+    alert('Os e-mails estão diferentes');
+    return;
+  }
+  if (formData.senha !== formData.confirm_senha) {
+    alert('As senhas estão diferentes');
+    return;
+  }
+try {
+    const response = await fetch('http://localhost:3000/api/restaurantes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+    if (response.ok) {
+      alert('Restaurante cadastrado');
+      form.reset(); 
+    } else {
+      alert('Erro ao cadastrar restaurante!');
+    }
+  } catch (error) {
+    console.error('Erro ao enviar o formulário:', error);
+    alert('Erro na conexão com o servidor.');
+  }
 }
