@@ -4,6 +4,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const cors = require('cors');
 app.use(cors());
+app.use(express.json());
 
 const pool = new Pool({
   connectionString: 'postgresql://postgres:Coolmida1234@db.zswimtruiwtwrqxadmnl.supabase.co:5432/postgres',
@@ -55,14 +56,15 @@ app.get('/api/restaurantes', async (req, res) => {
     res.status(500).send('Erro de conexão com o banco de dados');
   }
 });
+
 app.get('/', (req, res) => {
   console.log('Acessou rota ');
   res.send('Servidor rodando');
 });
+
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
-app.use(express.json());
 
 app.post('/api/restaurantes', async (req, res) => {
   const { nome, cnpj, telefone, celular, email_comercial, confirm_email, senha, confirm_senha } = req.body;
@@ -96,8 +98,8 @@ app.post('/api/restaurantes', async (req, res) => {
     res.status(500).send('erro na conexão com o banco');
   }
   console.log(req.body); 
-  
 });
+
 app.post('/api/usuarios', async (req, res) => {
   const {
     nome,
@@ -163,4 +165,3 @@ app.get('/api/usuarios', async (req, res) => {
     res.status(500).send('Erro na conexão com o banco');
   }
 });
-
