@@ -24,7 +24,7 @@
             <div class="access">
                 <button onclick="showLogin()">Login</button>
                 |
-                <button onclick="showCadastro()">Cadastro</button>
+                <button onclick="showRegister()">Cadastro</button>
             </div>
             <div id="profile">
                 <button id="profile-btn">
@@ -55,7 +55,7 @@
             </ul>
             <div class="access">
                 <button onclick="showLogin()">Login</button>
-                <button onclick="showCadastro()">Cadastro</button>
+                <button onclick="showRegister()">Cadastro</button>
             </div>
         </div>
     </header>
@@ -95,14 +95,14 @@
                 <button class="btn-default" type="submit">Entrar</button>
                 <div class="register">
                     Ainda não tem conta?<br>
-                    <a href="#" onclick="showCadastro()">Cadastre-se</a>
+                    <a href="#" onclick="showRegister()">Cadastre-se</a>
                 </div>
             </div>
         </form>
     </dialog>
-    <dialog class="box-cadastro">
+    <dialog class="box-register">
         <button class="close-btn" type="button">
-            <i class="fa-solid fa-xmark fa-2xl" onclick="closeCadastro()"></i>
+            <i class="fa-solid fa-xmark fa-2xl" onclick="closeRegister()"></i>
         </button>
         <div>
             <button class="btn-default" onclick="location.href='cadastro/cadastro_usuario.html'">Quero avaliar</button>

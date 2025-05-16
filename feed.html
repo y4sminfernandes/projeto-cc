@@ -24,7 +24,7 @@
             <div class="access">
                 <button onclick="showLogin()">Login</button>
                 |
-                <button onclick="showCadastro()">Cadastro</button>
+                <button onclick="showRegister()">Cadastro</button>
             </div>
             <div class="mobile-menu-icon">
                 <button onclick="showMenu()"><i id="menu-icon" class="fa-solid fa-bars"></i></button>
@@ -38,7 +38,7 @@
             </ul>
             <div class="access">
                 <button onclick="showLogin()">Login</button>
-                <button onclick="showCadastro()">Cadastro</button>
+                <button onclick="showRegister()">Cadastro</button>
             </div>
         </div>
     </header>
@@ -78,14 +78,14 @@
                 <button class="btn-default" type="submit">Entrar</button>
                 <div class="register">
                     Ainda não tem conta?<br>
-                    <a href="#" onclick="showCadastro()">Cadastre-se</a>
+                    <a href="#" onclick="showRegister()">Cadastre-se</a>
                 </div>
             </div>
         </form>
     </dialog>
-    <dialog class="box-cadastro">
+    <dialog class="box-register">
         <button class="close-btn" type="button">
-            <i class="fa-solid fa-xmark fa-2xl" onclick="closeCadastro()"></i>
+            <i class="fa-solid fa-xmark fa-2xl" onclick="closeRegister()"></i>
         </button>
         <div>
             <button class="btn-default" onclick="location.href='cadastro/cadastro_usuario.html'">Quero avaliar</button>
@@ -102,10 +102,10 @@
                         <div>
                             <a href="#"><img src="assets/images/foto_perfil.png"></a>
                         </div>
-                        <div>
+                        <div class="review-details">
                             <div>
-                                <a><strong>Fulano de Tal</strong></a> postou uma avaliação de
-                                <a><strong>Restaurante</strong></a>
+                                <a href="#"><strong>Fulano de Tal</strong></a> postou uma avaliação de
+                                <a href="#"><strong>Restaurante</strong></a>
                             </div>
                             <div>
                                 <i class="fa-solid fa-star"></i>
@@ -134,10 +134,10 @@
                         <div>
                             <a href="#"><img src="assets/images/foto_perfil.png"></a>
                         </div>
-                        <div>
+                        <div class="review-details">
                             <div>
-                                <a><strong>Fulano de Tal</strong></a> postou uma avaliação de
-                                <a><strong>Restaurante</strong></a>
+                                <a href="#"><strong>Fulano de Tal</strong></a> postou uma avaliação de
+                                <a href="#"><strong>Restaurante</strong></a>
                             </div>
                             <div>
                                 <i class="fa-solid fa-star"></i>
@@ -166,10 +166,10 @@
                         <div>
                             <a href="#"><img src="assets/images/foto_perfil.png"></a>
                         </div>
-                        <div>
+                        <div class="review-details">
                             <div>
-                                <a><strong>Fulano de Tal</strong></a> postou uma avaliação de
-                                <a><strong>Restaurante</strong></a>
+                                <a href="#"><strong>Fulano de Tal</strong></a> postou uma avaliação de
+                                <a href="#"><strong>Restaurante</strong></a>
                             </div>
                             <div>
                                 <i class="fa-solid fa-star"></i>
@@ -198,10 +198,10 @@
                         <div>
                             <a href="#"><img src="assets/images/foto_perfil.png"></a>
                         </div>
-                        <div>
+                        <div class="review-details">
                             <div>
-                                <a><strong>Fulano de Tal</strong></a> postou uma avaliação de
-                                <a><strong>Restaurante</strong></a>
+                                <a href="#"><strong>Fulano de Tal</strong></a> postou uma avaliação de
+                                <a href="#"><strong>Restaurante</strong></a>
                             </div>
                             <div>
                                 <i class="fa-solid fa-star"></i>
@@ -230,10 +230,10 @@
                         <div>
                             <a href="#"><img src="assets/images/foto_perfil.png"></a>
                         </div>
-                        <div>
+                        <div class="review-details">
                             <div>
-                                <a><strong>Fulano de Tal</strong></a> postou uma avaliação de
-                                <a><strong>Restaurante</strong></a>
+                                <a href="#"><strong>Fulano de Tal</strong></a> postou uma avaliação de
+                                <a href="#"><strong>Restaurante</strong></a>
                             </div>
                             <div>
                                 <i class="fa-solid fa-star"></i>
@@ -262,10 +262,10 @@
                         <div>
                             <a href="#"><img src="assets/images/foto_perfil.png"></a>
                         </div>
-                        <div>
+                        <div class="review-details">
                             <div>
-                                <a><strong>Fulano de Tal</strong></a> postou uma avaliação de
-                                <a><strong>Restaurante</strong></a>
+                                <a href="#"><strong>Fulano de Tal</strong></a> postou uma avaliação de
+                                <a href="#"><strong>Restaurante</strong></a>
                             </div>
                             <div>
                                 <i class="fa-solid fa-star"></i>
@@ -290,6 +290,7 @@
                     </div>
                 </div>
             </div>
+            <button id="load_more">Carregar mais</button>
         </section>
     </main>
     <footer>

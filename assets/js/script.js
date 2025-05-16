@@ -13,7 +13,7 @@ function showMenu() {
 }
 
 const modalLogin = document.querySelector('.box-login');
-const modalCadastro = document.querySelector('.box-cadastro');
+const modalCadastro = document.querySelector('.box-register');
 
 function showLogin() {
     modalLogin.showModal();
@@ -23,12 +23,12 @@ function closeLogin() {
     modalLogin.close();
 }
 
-function showCadastro() {
+function showRegister() {
     modalCadastro.showModal();
     modalLogin.close();
 }
 
-function closeCadastro() {
+function closeRegister() {
     modalCadastro.close();
 }
 
