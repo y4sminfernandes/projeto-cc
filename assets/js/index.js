@@ -8,7 +8,11 @@ app.use(cors());
 app.use(express.json());
 
 const pool = new Pool({
-  connectionString: 'postgresql://postgres:Coolmida1234@db.zswimtruiwtwrqxadmnl.supabase.co:5432/postgres',
+  host: 'db.zswimtruiwtwrqxadmnl.supabase.co',
+  port: 5432,
+  database: 'postgres',
+  user: 'postgres',
+  password: 'Coolmida1234',
   ssl: {
     rejectUnauthorized: false
   }
