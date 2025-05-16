@@ -1,10 +1,12 @@
+const dns = require('dns');
+dns.setDefaultResultOrder('ipv4first');
+
+
 const { Pool } = require('pg');
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
 const cors = require('cors');
-const dns = require('dns');
-dns.setDefaultResultOrder('ipv4first');
 
 
 app.use(cors());
