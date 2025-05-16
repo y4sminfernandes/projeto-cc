@@ -3,9 +3,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
 const cors = require('cors');
-
 app.use(cors());
-app.use(express.json());
 
 const pool = new Pool({
   connectionString: 'postgresql://postgres:Coolmida1234@db.zswimtruiwtwrqxadmnl.supabase.co:5432/postgres',
@@ -97,4 +95,72 @@ app.post('/api/restaurantes', async (req, res) => {
   } else {
     res.status(500).send('erro na conexão com o banco');
   }
+  console.log(req.body); 
+  
 });
+app.post('/api/usuarios', async (req, res) => {
+  const {
+    nome,
+    sobrenome,
+    dt_nascimento,
+    celular,
+    email,
+    confirm_email,
+    senha,
+    confirmar_senha,
+    genero
+  } = req.body;
+
+  if (email !== confirm_email) {
+    return res.status(400).send("Os e-mails estão diferentes");
+  }
+
+  if (senha !== confirmar_senha) {
+    return res.status(400).send("As senhas estão diferentes");
+  }
+
+  const client = await getConnection();
+
+  if (client) {
+    try {
+      const query = `
+        INSERT INTO usuarios (nome, dt_nascimento, genero, celular, email, senha)
+        VALUES ($1, $2, $3, $4, $5, $6)
+      `;
+      const nomeCompleto = `${nome} ${sobrenome}`;
+      const values = [nomeCompleto, dt_nascimento, genero, celular, email, senha];
+
+      await client.query(query, values);
+      res.status(201).send("Usuário cadastrado");
+    } catch (err) {
+      console.error('erro ao inserir :', err);
+      res.status(500).send('erro no cadastro');
+    } finally {
+      client.release();
+    }
+  } else {
+    res.status(500).send('erro conexão com o banco');
+  }
+});
+
+app.get('/api/usuarios', async (req, res) => {
+  const client = await getConnection();
+
+  if (client) {
+    try {
+      const result = await client.query('SELECT * FROM usuarios');
+      if (result.rows.length === 0) {
+        return res.status(404).send('Nenhum usuário encontrado');
+      }
+      res.json(result.rows);
+    } catch (err) {
+      console.error('Erro ao buscar usuários:', err);
+      res.status(500).send('Erro ao buscar usuários');
+    } finally {
+      client.release();
+    }
+  } else {
+    res.status(500).send('Erro na conexão com o banco');
+  }
+});
+
