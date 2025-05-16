@@ -33,6 +33,13 @@
                             placeholder="••••••••">
                         <i class="fa-solid fa-eye-slash password-icon"></i>
                     </div>
+                    <div class="input-box">
+    <label for="confirm_password" class="form-label">Confirmar senha</label>
+    <div class="input-field">
+        <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="••••••••">
+        <i class="fa-solid fa-eye-slash password-icon"></i>
+    </div>
+</div>
                 </div>
                 <div class="password-options">
                     <div class="remember-password">
@@ -88,7 +95,7 @@
                     <div class="input-box">
                         <label for="email" class="form-label">E-mail comercial</label>
                         <div class="input-field">
-                            <input type="email" name="email" id="email" class="form-control"
+                            <input type="email" name="email_comercial" id="email_comercial" class="form-control"
                                 placeholder="exemplo@exemplo.com">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
@@ -128,7 +135,43 @@
     </main>
     <script src="https://kit.fontawesome.com/51087b88d3.js" crossorigin="anonymous"></script>
     <script src="../assets/js/script.js"></script>
+<script>
+    document.getElementById("form").addEventListener("submit", async function (e) {
+    e.preventDefault();
 
+    const data = {
+  nome: document.getElementById("name").value,
+  cnpj: document.getElementById("cnpj").value,
+  telefone: document.getElementById("telphone").value,
+  celular: document.getElementById("celphone").value,
+  email_comercial: document.getElementById("email_comercial").value, 
+  confirm_email: document.getElementById("confirm_email").value,
+  senha: document.getElementById("password").value,
+  confirm_senha: document.getElementById("confirm_password").value
+};
+
+
+    try {
+      const response = await fetch("http://localhost:5000/api/restaurantes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      const msg = await response.text();
+
+      if (!response.ok) {
+        throw new Error(msg);
+      }
+
+      alert("Restaurante cadastrado com sucesso!");
+    } catch (err) {
+      alert("Erro: " + err.message);
+    }
+  });
+</script>
 </body>
 
 </html>
