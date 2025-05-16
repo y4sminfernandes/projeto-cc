@@ -3,20 +3,20 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
 const cors = require('cors');
+const dns = require('dns');
+dns.setDefaultResultOrder('ipv4first');
+
 
 app.use(cors());
 app.use(express.json());
 
 const pool = new Pool({
-  host: 'db.zswimtruiwtwrqxadmnl.supabase.co',
-  port: 5432,
-  database: 'postgres',
-  user: 'postgres',
-  password: 'Coolmida1234',
+  connectionString: 'postgresql://postgres:Coolmida1234@db.zswimtruiwtwrqxadmnl.supabase.co:5432/postgres',
   ssl: {
     rejectUnauthorized: false
   }
 });
+
 
 async function getConnection() {
   try {
