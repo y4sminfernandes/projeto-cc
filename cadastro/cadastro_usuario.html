@@ -134,7 +134,7 @@
                 </div>
                 <button type="submit" class="btn-default">Criar conta</button>
             </form>
-            <div id="to-login">
+            <div id="to_login">
                 <p>Já possui conta?</p>
                 <a onclick="showLogin()">Faça login</a>
             </div>
@@ -142,54 +142,54 @@
     </main>
     <script src="https://kit.fontawesome.com/51087b88d3.js" crossorigin="anonymous"></script>
     <script src="../assets/js/script.js"></script>
-   <script>
-    document.querySelector("form#form").addEventListener("submit", async (event) => {
-        event.preventDefault();
+    <script>
+        document.querySelector("form#form").addEventListener("submit", async (event) => {
+            event.preventDefault();
 
-        const form = event.target;
-        const formData = new FormData(form);
-        const data = {
-            nome: formData.get("name"),
-            sobrenome: formData.get("last_name"),
-            dt_nascimento: formData.get("birthdate"),
-            celular: formData.get("telphone"),
-            email: formData.get("email"),
-            confirm_email: formData.get("confirm_email"),
-            senha: formData.get("password"),
-            confirmar_senha: formData.get("confirm_password"),
-            genero: formData.get("gender")
-        };
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = {
+                nome: formData.get("name"),
+                sobrenome: formData.get("last_name"),
+                dt_nascimento: formData.get("birthdate"),
+                celular: formData.get("telphone"),
+                email: formData.get("email"),
+                confirm_email: formData.get("confirm_email"),
+                senha: formData.get("password"),
+                confirmar_senha: formData.get("confirm_password"),
+                genero: formData.get("gender")
+            };
 
-        if (data.senha !== data.confirmar_senha) {
-            alert("As senhas não coincidem.");
-            return;
-        }
-
-        if (data.email !== data.confirm_email) {
-            alert("Os e-mails não coincidem.");
-            return;
-        }
-
-        try {
-            const response = await fetch("https://projeto-cc.onrender.com/api/usuarios", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
-            });
-
-            if (response.ok) {
-                alert("Cadastro realizado com sucesso!");
-                form.reset();
-            } else {
-                const errorData = await response.json();
-                alert("Erro ao cadastrar: " + errorData.message);
+            if (data.senha !== data.confirmar_senha) {
+                alert("As senhas não coincidem.");
+                return;
             }
-        } catch (error) {
-            console.error("Erro na requisição:", error);
-            alert("Erro de conexão com o servidor.");
-        }
-    });
-</script>
+
+            if (data.email !== data.confirm_email) {
+                alert("Os e-mails não coincidem.");
+                return;
+            }
+
+            try {
+                const response = await fetch("https://projeto-cc.onrender.com/api/usuarios", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    alert("Cadastro realizado com sucesso!");
+                    form.reset();
+                } else {
+                    const errorData = await response.json();
+                    alert("Erro ao cadastrar: " + errorData.message);
+                }
+            } catch (error) {
+                console.error("Erro na requisição:", error);
+                alert("Erro de conexão com o servidor.");
+            }
+        });
+    </script>
 </body>
 
 </html>
