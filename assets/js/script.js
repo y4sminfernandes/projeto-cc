@@ -1,34 +1,34 @@
 function showMenu() {
     let menuMobile = document.querySelector('.mobile-menu');
-    if (menuMobile?.classList.contains('open')) {
+    if (menuMobile.classList.contains('open')) {
         menuMobile.classList.remove('open');
-        document.getElementById('menu-icon')?.classList.remove("fa-xmark");
-        document.getElementById('menu-icon')?.classList.add("fa-bars");
-    } else if (menuMobile) {
+        document.getElementById('menu-icon').classList.remove("fa-xmark");
+        document.getElementById('menu-icon').classList.add("fa-bars");
+    } else {
         menuMobile.classList.add('open');
-        document.getElementById('menu-icon')?.classList.remove("fa-bars");
-        document.getElementById('menu-icon')?.classList.add("fa-xmark");
+        document.getElementById('menu-icon').classList.remove("fa-bars");
+        document.getElementById('menu-icon').classList.add("fa-xmark");
     }
 }
 
 const modalLogin = document.querySelector('.box-login');
-const modalCadastro = document.querySelector('.box-cadastro');
+const modalCadastro = document.querySelector('.box-register');
 
 function showLogin() {
-    modalLogin?.showModal();
+    modalLogin.showModal();
 }
 
 function closeLogin() {
-    modalLogin?.close();
+    modalLogin.close();
 }
 
-function showCadastro() {
-    modalCadastro?.showModal();
-    modalLogin?.close();
+function showRegister() {
+    modalCadastro.showModal();
+    modalLogin.close();
 }
 
-function closeCadastro() {
-    modalCadastro?.close();
+function closeRegister() {
+    modalCadastro.close();
 }
 
 const passwordIcons = document.querySelectorAll('.password-icon');
@@ -36,10 +36,8 @@ const passwordIcons = document.querySelectorAll('.password-icon');
 passwordIcons.forEach(icon => {
     icon.addEventListener('click', function () {
         const input = this.parentElement.querySelector('.form-control');
-        if (input) {
-            input.type = input.type === 'password' ? 'text' : 'password';
-            this.classList.toggle('fa-eye');
-        }
+        input.type = input.type === 'password' ? 'text' : 'password';
+        this.classList.toggle('fa-eye');
     });
 });
 
@@ -63,10 +61,8 @@ if (btnProfile && profileOptions) {
 
 const btnFilter = document.querySelector(".btn-filter");
 const filterContent = document.querySelector("#filter_content");
-const btnSort = document.querySelector(".btn-sort");
-const sortContent = document.querySelector("#sort_content");
 
-if (btnFilter && filterContent && sortContent) {
+if (btnFilter && filterContent) {
     btnFilter.addEventListener("click", (event) => {
         event.stopPropagation();
         sortContent.classList.remove("active");
@@ -82,7 +78,10 @@ if (btnFilter && filterContent && sortContent) {
     });
 }
 
-if (btnSort && sortContent && filterContent) {
+const btnSort = document.querySelector(".btn-sort");
+const sortContent = document.querySelector("#sort_content");
+
+if (btnSort && sortContent) {
     btnSort.addEventListener("click", (event) => {
         event.stopPropagation();
         filterContent.classList.remove("active");
@@ -105,7 +104,9 @@ const createCards = Array.from({ length: 100 }).map((_, i) =>
         </div>
         <div class="card-info">
             <h3>Restaurante ${i + 1}</h3>
-            <div>Categoria</div>
+            <div>
+                Categoria
+            </div>
             <div>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
@@ -114,10 +115,12 @@ const createCards = Array.from({ length: 100 }).map((_, i) =>
                 <i class="fa-solid fa-star"></i>
                 <span>5,0</span>
             </div>
-            <div><i class="fa-solid fa-location-dot"></i> Cidade</div>
+            <div>
+                <i class="fa-solid fa-location-dot"></i>
+                Cidade
+            </div>
         </div>
-    </div>`
-);
+    </div>`);
 
 let perPage = 12;
 const statePage = {
@@ -125,89 +128,89 @@ const statePage = {
     perPage,
     totalPage: Math.ceil(createCards.length / perPage),
     maxVisibleButtons: 5,
-}
+};
 
 const pageControls = {
     next() {
         statePage.page++;
-        if (statePage.page > statePage.totalPage) statePage.page--;
+        if (statePage.page > statePage.totalPage) {
+            statePage.page--;
+        }
     },
     preview() {
         statePage.page--;
-        if (statePage.page < 1) statePage.page++;
+        if (statePage.page < 1) {
+            statePage.page++;
+        }
     },
     goTo(page) {
-        statePage.page = Math.max(1, Math.min(page, statePage.totalPage));
+        if (page < 1) page = 1;
+        statePage.page = +page;
+        if (page > statePage.totalPage) {
+            statePage.page = statePage.totalPage;
+        }
     },
     createListeners() {
-        const first = document.querySelector("#first");
-        const last = document.querySelector("#last");
-        const next = document.querySelector("#next");
-        const preview = document.querySelector("#preview");
+        document.querySelector("#first").addEventListener("click", () => {
+            pageControls.goTo(1);
+            update();
+        });
 
-        if (first) first.addEventListener("click", () => { pageControls.goTo(1); update(); });
-        if (last) last.addEventListener("click", () => { pageControls.goTo(statePage.totalPage); update(); });
-        if (next) next.addEventListener("click", () => { pageControls.next(); update(); });
-        if (preview) preview.addEventListener("click", () => { pageControls.preview(); update(); });
+        document.querySelector("#last").addEventListener("click", () => {
+            pageControls.goTo(statePage.totalPage);
+            update();
+        });
+
+        document.querySelector("#next").addEventListener("click", () => {
+            pageControls.next();
+            update();
+        });
+
+        document.querySelector("#preview").addEventListener("click", () => {
+            pageControls.preview();
+            update();
+        });
     },
     disableButtons() {
-        const preview = document.querySelector("#preview");
-        const first = document.querySelector("#first");
-        const next = document.querySelector("#next");
-        const last = document.querySelector("#last");
-
-        if (preview && first) {
-            preview.disabled = statePage.page === 1;
-            first.disabled = statePage.page === 1;
-        }
-        if (next && last) {
-            next.disabled = statePage.page === statePage.totalPage;
-            last.disabled = statePage.page === statePage.totalPage;
-        }
+        document.querySelector("#preview").disabled = statePage.page === 1;
+        document.querySelector("#first").disabled = statePage.page === 1;
+        document.querySelector("#next").disabled = statePage.page === statePage.totalPage;
+        document.querySelector("#last").disabled = statePage.page === statePage.totalPage;
     }
-}
+};
 
 const pageCards = {
     create(cardHTML) {
         const container = document.createElement("a");
         container.innerHTML = cardHTML;
-        document.querySelector("#cards_container")?.appendChild(container);
+        document.querySelector("#cards_container").appendChild(container);
     },
     update() {
-        const cardsContainer = document.querySelector("#cards_container");
-        if (!cardsContainer) return;
-        cardsContainer.innerHTML = "";
-
+        document.querySelector("#cards_container").innerHTML = "";
         let page = statePage.page - 1;
         let start = page * statePage.perPage;
         let end = start + statePage.perPage;
         const paginatedCards = createCards.slice(start, end);
-
         paginatedCards.forEach(pageCards.create);
     }
-}
+};
 
 const numButtons = {
     create(number) {
         const button = document.createElement("li");
         button.innerHTML = `<a href="#">${number}</a>`;
-
-        if (statePage.page === number) button.classList.add("active");
-
+        if (statePage.page === number) {
+            button.classList.add("active");
+        }
         button.addEventListener("click", (event) => {
-            event.preventDefault();
-            const page = Number(event.target.innerText);
+            const page = event.target.innerText;
             pageControls.goTo(page);
             update();
         });
-
-        document.querySelector("#pagination_numbers")?.appendChild(button);
+        document.querySelector("#pagination_numbers").appendChild(button);
     },
     update() {
-        const pagination = document.querySelector("#pagination_numbers");
-        if (!pagination) return;
-
-        pagination.innerHTML = "";
+        document.querySelector("#pagination_numbers").innerHTML = "";
         const { maxLeft, maxRight } = numButtons.calculateMaxVisible();
         for (let page = maxLeft; page <= maxRight; page++) {
             numButtons.create(page);
@@ -215,8 +218,8 @@ const numButtons = {
     },
     calculateMaxVisible() {
         const { maxVisibleButtons } = statePage;
-        let maxLeft = statePage.page - Math.floor(maxVisibleButtons / 2);
-        let maxRight = statePage.page + Math.floor(maxVisibleButtons / 2);
+        let maxLeft = (statePage.page - Math.floor(maxVisibleButtons / 2));
+        let maxRight = (statePage.page + Math.floor(maxVisibleButtons / 2));
 
         if (maxLeft < 1) {
             maxLeft = 1;
@@ -226,12 +229,14 @@ const numButtons = {
         if (maxRight > statePage.totalPage) {
             maxLeft = statePage.totalPage - (maxVisibleButtons - 1);
             maxRight = statePage.totalPage;
-            if (maxLeft < 1) maxLeft = 1;
+            if (maxLeft < 1) {
+                maxLeft = 1;
+            }
         }
 
         return { maxLeft, maxRight };
     }
-}
+};
 
 function update() {
     pageCards.update();
@@ -239,11 +244,86 @@ function update() {
     pageControls.disableButtons();
 }
 
-function init() {
-    if (document.querySelector("#cards_container")) {
-        update();
-        pageControls.createListeners();
-    }
+function initPagination() {
+    update();
+    pageControls.createListeners();
 }
 
-init();
+document.addEventListener('DOMContentLoaded', () => {
+    initPagination();
+
+    fetch('https://projeto-cc.onrender.com/api/restaurantes')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            displayRestaurants(data);
+        })
+        .catch(error => {
+            console.error('Erro na busca dos restaurantes:', error);
+        });
+
+    const form = document.getElementById('form');
+    if (form) {
+        form.addEventListener('submit', handleFormSubmit);
+    }
+});
+
+function displayRestaurants(restaurants) {
+    const container = document.getElementById('cards_container');
+    if (!container) return;
+    restaurants.forEach(restaurant => {
+        const card = document.createElement('div');
+        card.classList.add('restaurant-card');
+        card.innerHTML = `
+            <h3>${restaurant.name}</h3>
+            <p>Tipo de Culinária: ${restaurant.type}</p>
+        `;
+        container.appendChild(card);
+    });
+}
+
+async function handleFormSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+
+    const formData = {
+        nome: document.getElementById('name').value,
+        cnpj: document.getElementById('cnpj').value,
+        telefone: document.getElementById('telphone').value,
+        celular: document.getElementById('celphone').value,
+        email_comercial: document.getElementById('email').value,
+        confirm_email: document.getElementById('confirm_email').value,
+        senha: document.getElementById('password').value,
+        confirm_senha: document.getElementById('confirm_password').value,
+    };
+
+    if (formData.email_comercial !== formData.confirm_email) {
+        alert('Os e-mails estão diferentes');
+        return;
+    }
+
+    if (formData.senha !== formData.confirm_senha) {
+        alert('As senhas estão diferentes');
+        return;
+    }
+
+    try {
+        const response = await fetch('https://projeto-cc.onrender.com/api/restaurantes', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+            alert('Restaurante cadastrado');
+            form.reset();
+        } else {
+            alert('Erro ao cadastrar restaurante!');
+        }
+    } catch (error) {
+        console.error('Erro ao enviar o formulário:', error);
+        alert('Erro na conexão com o servidor.');
+    }
+}
