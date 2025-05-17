@@ -301,7 +301,9 @@ function displayRestaurants(restaurants) {
 }
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('form');
-  form.addEventListener('submit', handleFormSubmit); 
+  if (form) {
+    form.addEventListener('submit', handleFormSubmit); 
+  }
 });
 async function handleFormSubmit(event) {
   event.preventDefault(); 
@@ -325,7 +327,7 @@ const formData = {
     return;
   }
 try {
-    const response = await fetch('http://localhost:3000/api/restaurantes', {
+    const response = await fetch('https://projeto-cc.onrender.com/api/restaurantes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
