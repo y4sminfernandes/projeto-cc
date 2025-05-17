@@ -335,6 +335,7 @@ const formData = {
 };
 
 
+
     if (formData.email_comercial !== formData.confirm_email) {
         alert('Os e-mails estão diferentes');
         return;
