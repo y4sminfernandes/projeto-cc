@@ -323,16 +323,17 @@ document.addEventListener('DOMContentLoaded', () => {
 async function handleFormSubmit(event) {
     event.preventDefault();
 
-    const formData = {
-        nome: document.getElementById('name').value,
-        cnpj: document.getElementById('cnpj').value,
-        telefone: document.getElementById('telphone').value,
-        celular: document.getElementById('celphone').value,
-        email_comercial: document.getElementById('email').value,
-        confirm_email: document.getElementById('confirm_email').value,
-        senha: document.getElementById('password').value,
-        confirm_senha: document.getElementById('confirm_password').value,
-    };
+const formData = {
+    nome: document.getElementById('name').value,
+    cnpj: document.getElementById('cnpj').value,
+    telefone: document.getElementById('telphone').value,
+    celular: document.getElementById('celphone').value,
+    email_comercial: document.getElementById('email_comercial').value,
+    confirm_email: document.getElementById('confirm_email').value,
+    senha: document.getElementById('password_register').value,
+    confirm_senha: document.getElementById('confirm_password_register').value,
+};
+
 
     if (formData.email_comercial !== formData.confirm_email) {
         alert('Os e-mails estão diferentes');
