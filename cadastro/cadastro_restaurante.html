@@ -134,60 +134,58 @@
         </section>
     </main>
     <script src="https://kit.fontawesome.com/51087b88d3.js" crossorigin="anonymous"></script>
-    <script src="../assets/js/script.js"></script>
-</body>
-<script>
+    <script>
     document.querySelector("form#form").addEventListener("submit", async (event) => {
         event.preventDefault();
 
-    const form = event.target;
-const formData = new FormData(form);
+        const form = event.target;
+        const formData = new FormData(form);
 
-const data = {
-    nome: formData.get("name"),
-    cnpj: formData.get("cnpj"),
-    telefone: formData.get("telphone"), 
-    celular: formData.get("celphone"),
-    email: formData.get("email"),
-    senha: formData.get("password"),
-    confirmar_senha: formData.get("confirm_password")
-};
-if (data.senha !== data.confirmar_senha) {
-    alert("As senhas estão diferentes.");
-    return;
-}
+        const data = {
+            nome: formData.get("name"),
+            cnpj: formData.get("cnpj"),
+            telefone: formData.get("telphone"),
+            celular: formData.get("celphone"),
+            email_comercial: formData.get("email_comercial"),
+            confirm_email: formData.get("confirm_email"),
+            senha: formData.get("password"),
+            confirmar_senha: formData.get("confirm_password")
+        };
+        if (data.senha !== data.confirmar_senha) {
+            alert("As senhas estão diferentes.");
+            return;
+        }
+        if (data.email_comercial !== data.confirm_email) {
+            alert("Os e-mails são diferentes");
+            return;
+        }
+        try {
+            const response = await fetch("https://projeto-cc.onrender.com/api/restaurantes", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
 
-if (data.email !== formData.get("confirm_email")) {
-    alert("Os e-mails são diferentes");
-    return;
-}
+            let resultado;
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.includes("application/json")) {
+                resultado = await response.json();
+            } else {
+                resultado = await response.text();
+            }
 
-try {
-    const response = await fetch("https://projeto-cc.onrender.com/api/restaurantes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+            if (response.ok) {
+                alert("Restaurante cadastrado");
+                form.reset();
+            } else {
+                alert("Erro ao cadastrar restaurante: " + resultado);
+                console.error("Erro:", resultado);
+            }
+        } catch (error) {
+            console.error("Erro:", error);
+            alert("erro  conexão com o servidor.");
+        }
     });
-
-    let resultado;
-    const contentType = response.headers.get("content-type");
-    if (contentType && contentType.includes("application/json")) {
-        resultado = await response.json();
-    } else {
-        resultado = await response.text();
-    }
-
-    if (response.ok) {
-        alert("Restaurante cadastrado");
-        form.reset();
-    } else {
-        alert("Erro ao cadastrar restaurante: " + resultado);
-        console.error("Erro:", resultado);
-    }
-} catch (error) {
-    console.error("Erro na requisição:", error);
-    alert("erro  conexão com o servidor.");
-}
-
 </script>
 </html>
+
