@@ -77,9 +77,9 @@ app.post('/api/restaurantes', async (req, res) => {
  if (senha !== confirm_senha) {
     return res.status(400).send("As senhas estão diferentes");
   }
-  if (nome || !cnpj || !telefone || !celular || !email_comercial || !senha){
-     return res.status(400).send("Todos os campos precisam ser preenchidos");
-  }
+  if (!nome || !cnpj || !telefone || !celular || !email_comercial || !senha) {
+  return res.status(400).send("Todos os campos precisam ser preenchidos");
+}
   const client = await getConnection();
 
   if (client) {
