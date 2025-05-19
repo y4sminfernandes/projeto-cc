@@ -45,6 +45,7 @@ passwordIcons.forEach(icon => {
 const btnProfile = document.querySelector("#profile-btn");
 const profileOptions = document.querySelector(".profile-options-list");
 
+if (bntProfile && profileOptions){
 btnProfile.addEventListener("click", (event) => {
     event.stopPropagation();
     profileOptions.classList.toggle("active");
@@ -57,3 +58,4 @@ profileOptions.addEventListener("click", (event) => {
 window.addEventListener("click", () => {
     profileOptions.classList.remove("active");
 });
+}
