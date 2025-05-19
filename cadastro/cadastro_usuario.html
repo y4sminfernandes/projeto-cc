@@ -21,7 +21,7 @@
                 <div class="input-box">
                     <label for="email" class="form-label">E-mail</label>
                     <div class="input-field">
-                        <input type="email" name="email" id="email" class="form-control"
+                        <input type="email" name="email" id="login_email" class="form-control"
                             placeholder="exemplo@exemplo.com">
                         <i class="fa-solid fa-envelope"></i>
                     </div>
@@ -29,7 +29,7 @@
                 <div class="input-box">
                     <label for="password" class="form-label">Senha</label>
                     <div class="input-field">
-                        <input type="password" name="password" id="password" class="form-control"
+                        <input type="password" name="password" id="login_password" class="form-control"
                             placeholder="••••••••">
                         <i class="fa-solid fa-eye-slash password-icon"></i>
                     </div>
@@ -85,7 +85,7 @@
                     <div class="input-box">
                         <label for="email" class="form-label">E-mail</label>
                         <div class="input-field">
-                            <input type="email" name="email" id="email" class="form-control"
+                            <input type="email" name="email" id="cadastro_email" class="form-control"
                                 placeholder="exemplo@exemplo.com">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
@@ -101,7 +101,7 @@
                     <div class="input-box">
                         <label for="password" class="form-label">Senha</label>
                         <div class="input-field">
-                            <input type="password" name="password" id="password" class="form-control"
+                            <input type="password" name="password" id="cadastro_password" class="form-control"
                                 placeholder="••••••••">
                             <i class="fa-solid fa-eye-slash password-icon"></i>
                         </div>
@@ -176,7 +176,6 @@
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data),
                 });
-
                 if (response.ok) {
                     alert("Cadastro realizado com sucesso!");
                     form.reset();
@@ -191,5 +190,4 @@
         });
     </script>
 </body>
-
 </html>
