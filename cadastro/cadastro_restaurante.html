@@ -141,16 +141,16 @@
     const form = event.target;
     const formData = new FormData(form);
     const data = {
-        nome: formData.get("nome"),
+        nome: formData.get("name"),
         cnpj: formData.get("cnpj"),
-        telefone: formData.get("telefone"),
-        celular: formData.get("celular"),
+        telefone: formData.get("telphone"),
+        celular: formData.get("celphone"),
         email_comercial: formData.get("email_comercial"),
         confirm_email: formData.get("confirm_email"),
-        senha: formData.get("senha"),
-        confirm_senha: formData.get("confirm_senha")
+        senha: formData.get("password"),
+        confirm_senha: formData.get("confirm_password")
     };
-    if (data.email_comercial !== data.email_comercial){
+    if (data.email_comercial !== data.confirm_email){
         alert("Os E-mails estão diferentes");
         return;
     }
