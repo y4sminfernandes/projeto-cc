@@ -136,5 +136,40 @@
     <script src="https://kit.fontawesome.com/51087b88d3.js" crossorigin="anonymous"></script>
     <script src="../assets/js/script.js"></script>
 </body>
+<script>
+    document.querySelector("form#form").addEventListener("submit", async (event) => {
+        event.preventDefault();
 
+    const form = event.target;
+    const formData = new FormData(form);
+    const data = {
+        nome: formData.get("nome"),
+        cnpj: formData.get("cnpj"),
+        telefone: formData.get("telefone"),
+        celular: formData.get("celular"),
+        email_comercial: formData.get("email_comercial"),
+        confirm_email: formData.get("confirm_email"),
+        senha: formData.get("senha"),
+        confirm_senha: formData.get("confirm_senha")
+    };
+    if (data.email_comercial !== data.email_comercial){
+        alert("Os E-mails estão diferentes");
+        return;
+    }
+    try{ const response = await fetch("https://projeto-cc.onrender.com/api/restaurantes",{
+    method: "POST",
+         headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            }); 
+    if (response.ok){
+    alert("Restaurante cadastrado");
+    form.reset();} else{
+    const errorData = await response.json();
+    alert("Erro ao cadastrar restaurante: " + errorData.message);}
+       }catch (error){
+        console.error("Erro:", error);
+            alert("erro  conexão com o servidor.");
+        }
+    });
+</script>
 </html>
