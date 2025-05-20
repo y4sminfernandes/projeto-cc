@@ -231,7 +231,7 @@ dialog a {
     color: var(--primary-color);
 }
 
-.box-login {
+#box_login {
     padding: 20rem;
 }
 
@@ -271,26 +271,43 @@ dialog a {
     text-align: center;
 }
 
-.box-register .close-btn {
+#box_register .close-btn,
+#box_forgot_password .close-btn {
     position: absolute;
     top: 0;
     right: 0;
     margin: 15rem 15rem 0;
 }
 
-.box-register {
+#box_register {
     padding: 40rem;
 }
 
-.box-register div {
+#box_register div {
     display: flex;
     flex-direction: column;
     gap: 50rem;
     margin-top: 15rem;
 }
 
-.box-register div button {
+#box_register div button {
     padding: 20rem;
+}
+
+#box_forgot_password {
+    padding: 40rem;
+}
+
+#box_forgot_password #email-confirmation {
+    display: flex;
+    flex-direction: column;
+    gap: 20rem;
+}
+
+#box_forgot_password .input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 18rem;
 }
 
 .btn-default {

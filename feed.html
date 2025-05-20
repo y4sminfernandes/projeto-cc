@@ -42,17 +42,17 @@
             </div>
         </div>
     </header>
-    <dialog class="box-login">
+    <dialog id="box_login">
         <form>
             <div class="modal-header">
-                <h1 class="modal-title">Login</h1>
+                <h2 class="modal-title">Login</h2>
                 <button class="close-btn" type="button">
                     <i class="fa-solid fa-xmark fa-2xl" onclick="closeLogin()"></i>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="input-box">
-                    <label for="email" class="form-label">E-mail</label>
+                    <label for="login_email" class="form-label">E-mail</label>
                     <div class="input-field">
                         <input type="email" name="email" id="login_email" class="form-control"
                             placeholder="exemplo@exemplo.com">
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="input-box">
-                    <label for="password" class="form-label">Senha</label>
+                    <label for="login_password" class="form-label">Senha</label>
                     <div class="input-field">
                         <input type="password" name="password" id="login_password" class="form-control"
                             placeholder="••••••••">
@@ -73,7 +73,7 @@
                         <label for="remember_password">Lembrar-me</label>
                     </div>
 
-                    <a href="#" class="forgot-password">Esqueci minha senha</a>
+                    <a href="#" class="forgot-password" onclick="showForgotPassword()">Esqueci minha senha</a>
                 </div>
                 <button class="btn-default" type="submit">Entrar</button>
                 <div class="register">
@@ -83,7 +83,7 @@
             </div>
         </form>
     </dialog>
-    <dialog class="box-register">
+    <dialog id="box_register">
         <button class="close-btn" type="button">
             <i class="fa-solid fa-xmark fa-2xl" onclick="closeRegister()"></i>
         </button>
@@ -91,6 +91,22 @@
             <button class="btn-default" onclick="location.href='cadastro/cadastro_usuario.html'">Quero avaliar</button>
             <button class="btn-default" onclick="location.href='cadastro/cadastro_restaurante.html'">Tenho um
                 restaurante</button>
+        </div>
+    </dialog>
+    <dialog id="box_forgot_password">
+        <button class="close-btn" type="button" onclick="closeForgotPassword()">
+            <i class="fa-solid fa-xmark fa-2xl"></i>
+        </button>
+        <div id="email-confirmation">
+            <div class="input-box">
+                <label class="form-label">Digite seu email para receber um código de confirmação</label>
+                <div class="input-field">
+                    <input type="email" name="email" id="confirm_email" class="form-control"
+                        placeholder="exemplo@exemplo.com">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+            </div>
+            <button class="btn-default" type="submit">Enviar</button>
         </div>
     </dialog>
     <main id="main_container">
@@ -166,12 +182,12 @@
         const reviewContainer = document.getElementById('review_container');
         const loadMore = document.getElementById('load_more');
         let currentItems = 0;
-        const perPage = 12;
+        const reviewsPerPage = 12;
 
         function showReviews() {
-            const nextItems = createReviews.slice(currentItems, currentItems + perPage).join('');
+            const nextItems = createReviews.slice(currentItems, currentItems + reviewsPerPage).join('');
             reviewContainer.insertAdjacentHTML('beforeend', nextItems);
-            currentItems += perPage;
+            currentItems += reviewsPerPage;
             if (currentItems >= createReviews.length) {
                 loadMore.style.display = 'none';
             }
