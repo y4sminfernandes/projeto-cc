@@ -1,3 +1,4 @@
+// Função de mostrar menu no mobile
 function showMenu() {
     let menuMobile = document.querySelector('.mobile-menu');
     if (menuMobile.classList.contains('open')) {
@@ -16,6 +17,7 @@ const modalLogin = document.querySelector('#box_login');
 const modalRegister = document.querySelector('#box_register');
 const modalForgotPassword = document.querySelector('#box_forgot_password');
 
+// Funções de abrir e fechar modais de login e cadastro
 function showLogin() {
     modalLogin.showModal();
 }
@@ -42,6 +44,7 @@ function closeForgotPassword() {
     modalForgotPassword.close();
 }
 
+// Botão de mostrar e ocultar senha
 const passwordIcons = document.querySelectorAll('.password-icon');
 
 passwordIcons.forEach(icon => {
@@ -52,6 +55,9 @@ passwordIcons.forEach(icon => {
     })
 });
 
+
+// Botão de mostrar opções de perfil
+// Adicionar função de mostrar essa parte e ocultar botões de login e cadastro depois que o usuário fizer login 
 const btnProfile = document.querySelector("#profile-btn");
 const profileOptions = document.querySelector(".profile-options-list");
 
@@ -70,6 +76,8 @@ if (btnProfile && profileOptions) {
     });
 }
 
+
+// Botão de mostrar filtros de pesquisa de restaurantes
 const btnFilter = document.querySelector(".btn-filter");
 const filterContent = document.querySelector("#filter_content");
 
@@ -88,6 +96,7 @@ window.addEventListener("click", () => {
     filterContent.classList.remove("active");
 });
 
+// Botão de mostrar ordenação de pesquisa de restaurantes
 const btnSort = document.querySelector(".btn-sort");
 const sortContent = document.querySelector("#sort_content");
 
@@ -105,6 +114,8 @@ window.addEventListener("click", () => {
     sortContent.classList.remove("active");
 });
 
+// Criação de cards dos restaurantes
+// Atlterar para criar cards com as informações do banco de dados
 const createCards = Array.from({ length: 100 }).map((_, i) =>
     `<div class="card">
         <div class="card-image">
@@ -130,6 +141,7 @@ const createCards = Array.from({ length: 100 }).map((_, i) =>
         </div>
     </div>`);
 
+// Paginação da página de restaurantes
 let perPage = 12;
 const statePage = {
     page: 1,

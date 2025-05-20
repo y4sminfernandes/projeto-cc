@@ -144,6 +144,8 @@
         </div>
     </footer>
     <script>
+        // Criação de avaliações (não funciona quando coloca no arquivo script.js)
+        // Alterar para gerar avaliações com as informações do banco de dados
         const createReviews = Array.from({ length: 100 }).map((_, i) =>
             `<div class="review";">
             <div class="review-info">
@@ -184,6 +186,7 @@
         let currentItems = 0;
         const reviewsPerPage = 12;
 
+        // Função do botão "Carregar mais" para mostrar mais avaliações
         function showReviews() {
             const nextItems = createReviews.slice(currentItems, currentItems + reviewsPerPage).join('');
             reviewContainer.insertAdjacentHTML('beforeend', nextItems);
