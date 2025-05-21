@@ -168,3 +168,25 @@ app.get('/api/usuarios', async (req, res) => {
     res.status(500).send('Erro na conexão com o banco');
   }
 });
+app.post('/api/login-restaurante', async (req, res) => {
+  const {email, senha} = req.body;
+
+  const client = await getConnection();
+  if (client){
+    try{ const query = 'SELECT * FROM restaurantes WHERE email_comercial = $1 and senha = $2';
+        const values = [email, senha];
+        const result = await client.query(query, values);
+  if (result.rows.length === 0){
+    return res.status(401).send("E-mail ou senha errados");
+  }
+  res.status(200).send("Sucesso no login do restaurante");
+  }catch(err){
+      console.error('Erro no login do restaurante:', err);
+      res.status(500).send('Erro no login do restaurante');
+    }finally{
+      client.release();
+    }
+  }else{
+    res.status(500).send('Erro de conexão banco');
+  }
+});
