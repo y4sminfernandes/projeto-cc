@@ -168,7 +168,7 @@ app.get('/api/usuarios', async (req, res) => {
     res.status(500).send('Erro na conexão com o banco');
   }
 });
-app.post('/api/login-restaurante', async (req, res) => {
+app.get('/api/login-restaurante', async (req, res) => {
   const {email, senha} = req.body;
 
   const client = await getConnection();
