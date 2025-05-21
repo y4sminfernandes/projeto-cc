@@ -169,7 +169,7 @@ app.get('/api/usuarios', async (req, res) => {
   }
 });
 app.get('/api/login-restaurante', async (req, res) => {
-  const {email, senha} = req.body;
+  const {email, senha} = req.query;
 
   const client = await getConnection();
   if (client){
